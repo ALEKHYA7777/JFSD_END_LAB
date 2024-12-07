@@ -1,0 +1,18 @@
+
+
+<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+    <property name="url" value="jdbc:mysql://localhost:3306/jfsd"/>
+    <property name="username" value="root"/>
+    <property name="password" value="Alekhya@1143"/>
+</bean>
+
+<context:component-scan base-package="com.klu"/> 
+
+<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+    <property name="dataSource" ref="dataSource"/>
+</bean>
+
+<bean id="dao" class="com.klu.DAO">
+    <property name="jdbcTemplate" ref="jdbcTemplate"/>
+</bean>
